@@ -1,0 +1,186 @@
+/* 全局設定 */
+body {
+    margin: 0;
+    font-family:"Trajan Pro", sans-serif;
+    color: #333;
+    background-color: #fdfbf7; /* 溫馨的米白色調 */
+}
+
+/* 導覽列樣式 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d4a373;
+}
+.navbar nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+.navbar nav a:hover {
+    color: #d4a373;
+}
+
+/* 主視覺區樣式 */
+.hero {
+    height: 400px;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/product_banner1.jpg') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* 商品區樣式 */
+.products {
+    padding: 60px 20px;
+    text-align: center;
+}
+.products h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #444;
+}
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: auto;
+}
+.card {
+    background: white;
+    padding: 20px;
+    margin: 17px 17px 30px 15px;
+    border-radius: 12px;
+    width: 280px;
+    height: 400px; /* 【調高一點】確保所有文字都能舒適放下，建議設在 430px ~ 460px 之間 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: left;
+    
+    display: flex;
+    flex-direction: column; 
+    box-sizing: border-box; /* 確保 padding 不會把高度撐破 */
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 200px; /* 設定圖片固定的高度 */
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.placeholder-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 讓圖片自動填滿且不變形 */
+    
+}
+
+.card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 20px;
+}
+.card p {
+    color: #777;
+    font-size: 14px;
+    min-height: 40px;
+}
+/* 價錢樣式：自動推到最底部對齊 */
+.price {
+    display: block;
+    margin-top: auto; /* 自動把價錢頂到最下方，達成完美水平對齊 */
+    font-weight: bold;
+    color: #e07a5f;
+    font-size: 22px;
+    font-family: "Trajan Pro", sans-serif;
+}
+
+/* 品牌故事區塊樣式 */
+.about {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #efe5d0; /* 柔和的暖米色背景 */
+}
+
+.about h2 {
+    font-size: 28px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.about-content {
+    max-width: 700px; /* 限制文字寬度，閱讀起來最舒適 */
+    margin: 0 auto;   /* 讓整個段落置中 */
+}
+
+.about-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4a373; /* 呼應品牌色 */
+    margin-bottom: 20px;
+}
+
+.about-text {
+    font-size: 15px;
+    line-height: 1.8; /* 增加行距，文字才不會擠在一起 */
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* 聯絡我們樣式 */
+.contact {
+    background-color: #e1d9c3; /* 深色背景 */
+    color: #edf2f4;           /* 文字改為亮色 */
+    padding: 50px 20px 20px 20px;
+}
+
+/* 修正拼寫：conatct-content -> contact-content */
+.contact-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* 改成 center 讓它們置中並列 */
+    gap: 60px;                /* 兩欄之間的間距 */
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+/* 單個區塊樣式 */
+.contact-section h3 {
+    font-size: 18px;
+    color: #624f08; /* 亮黃色小標題 */
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 8px 0;
+    color: #0f1114;
+}
+
+/* 最底下的版權聲明置中 */
+.footer-bottom {
+    text-align: center ;
+    background-color: #e1d9c3;
+    padding-bottom: 1px;
+    border-top: 2px solid rgba(39, 36, 36, 0.1); /* 加一條淡淡的分隔線 */
+    font-size: 13px;
+    color: #0b0d12;
+}

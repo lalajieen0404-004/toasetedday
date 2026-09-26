@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提拉米蘇巴斯克 - 微焦日子 Toasted Day</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 圖片預覽區專用小樣式 */
+        .gallery-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        /* 主圖樣式 */
+        #main-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            transition: opacity 0.3s ease; /* 切換時帶有一點淡入淡出特效 */
+        }
+        /* 下方縮圖排版 */
+        .thumbnail-list {
+            display: flex;
+            gap: 10px;
+        }
+        /* 縮圖樣式 */
+        .thumb {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.7;
+            transition: all 0.2s;
+        }
+        /* 滑鼠移上去或被選中的縮圖外框特效 */
+        .thumb:hover, .thumb.active {
+            border-color: #e07a5f;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頂部導覽列 -->
+    <header class="navbar">
+        <div class="logo">TOASTED DAY</div>
+        <nav>
+            <a href="index.html">返回首頁</a>
+        </nav>
+    </header>
+
+    <!-- 商品詳情主內容區 -->
+    <section class="product-detail-container" style="padding: 60px 20px; max-width: 900px; margin: 0 auto; display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start;">
+        
+        <!-- 左側：圖片預覽互動區 -->
+        <div class="gallery-container">
+            <!-- 1. 上方大圖（預設顯示第一張） -->
+            <img id="main-img" src="img/product_tiramisu_whole.jpg" alt="提拉米蘇巴斯克主圖">
+            
+            <!-- 2. 下方小縮圖清單（點擊會切換上方主圖） -->
+            <div class="thumbnail-list">
+                <!-- 第一張縮圖 -->
+                <img src="img/product_tiramisu_whole.jpg" alt="整模預覽" class="thumb active" onclick="changeImage(this)">
+                <!-- 第二張縮圖（請確保你的 img 資料夾裡有這張照片，或換成你自己的第二張圖檔名） -->
+                <img src="img/product_tiramisu_slide.jpg" alt="切片預覽" class="thumb" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <!-- 右側：商品資訊與規格選擇 -->
+        <div style="flex: 1; min-width: 300px;">
+            <h1 style="font-size: 28px; color: #333; margin-bottom: 10px;">提拉米蘇巴斯克</h1>
+            <p style="color: #e07a5f; font-size: 24px; font-weight: bold; margin-bottom: 20px;">NT$450 ~ NT$880</p>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 25px;">
+                濃郁咖啡香與乳酪完美結合，大人系的成熟風味。使用頂級馬斯卡彭起司與義大利濃縮咖啡，每一口都能感受到酒香與咖啡香的完美交織。
+            </p>
+            
+            <!-- 商品規格表單區塊 -->
+            <div class="product-options" style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                
+                <!-- 尺寸選擇下拉選單 -->
+                <div class="option-group" style="margin-bottom: 15px;">
+                    <label for="size-select" style="display: block; font-weight: bold; margin-bottom: 8px; color: #444;">選擇尺寸：</label>
+                    <select id="size-select" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 15px; background-color: #fff;">
+                        <option value="4inch">4 吋迷你版 (NT$450)</option>
+                        <option value="6inch" selected>6 吋經典分享版 (NT$880)</option>
+                    </select>
+                </div>
+
+                <!-- 加購配件勾選框 -->
+                <div class="option-group" style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #444;">加購配件：</label>
+                    <label style="display: inline-flex; align-items: center; margin-right: 15px; font-size: 14px; color: #666; cursor: pointer;">
+                        <input type="checkbox" style="margin-right: 5px;"> 質感金色蠟燭 (+NT$30)
+                    </label>
+                    <label style="display: inline-flex; align-items: center; font-size: 14px; color: #666; cursor: pointer;">
+                        <input type="checkbox" style="margin-right: 5px;"> 生日快樂插牌 (+NT$50)
+                    </label>
+                </div>
+
+                <!-- 加入購物車按鈕 -->
+                <button class="buy-btn" style="width: 100%; padding: 12px; background-color: #e07a5f; color: white; border: none; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                    加入購物車
+                </button>
+            </div>
+
+            <a href="index.html" style="display: inline-block; color: #666; text-decoration: none; font-size: 14px;">← 返回首頁選購其他蛋糕</a>
+        </div>
+    </section>
+
+    <!-- 簡易的圖片切換 JavaScript 程式碼 -->
+    <script>
+        function changeImage(element) {
+            const mainImg = document.getElementById('main-img');
+            
+            // 1. 把上方主圖的 src 換成被點擊的那張縮圖的 src
+            mainImg.src = element.src;
+            
+            // 2. 移除所有縮圖的 active 樣式
+            const thumbs = document.querySelectorAll('.thumb');
+            thumbs.forEach(thumb => thumb.classList.remove('active'));
+            
+            // 3. 幫當前點擊的縮圖加上 active 框線特效
+            element.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
