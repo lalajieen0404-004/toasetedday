@@ -48,7 +48,7 @@
 
     <!-- 頂部導覽列 -->
     <header class="navbar">
-        <div class="logo">TOASTED DAY</div>
+        <a href="index.html"class="logo">TOASTED DAY</a>
         <nav>
             <a href="index.html">返回首頁</a>
         </nav>
@@ -74,7 +74,7 @@
         <!-- 右側：商品資訊與規格選擇 -->
         <div style="flex: 1; min-width: 300px;">
             <h1 style="font-size: 28px; color: #333; margin-bottom: 10px;">提拉米蘇巴斯克</h1>
-            <p style="color: #e07a5f; font-size: 24px; font-weight: bold; margin-bottom: 20px;">NT$450 ~ NT$880</p>
+            <p id="product-price" style="color: #e07a5f; font-size: 24px; font-weight: bold; margin-bottom: 20px;">NT$450 ~ NT$880</p>
             <p style="color: #666; line-height: 1.8; margin-bottom: 25px;">
                 濃郁咖啡香與乳酪完美結合，大人系的成熟風味。使用頂級馬斯卡彭起司與義大利濃縮咖啡，每一口都能感受到酒香與咖啡香的完美交織。
             </p>
@@ -86,19 +86,23 @@
                 <div class="option-group" style="margin-bottom: 15px;">
                     <label for="size-select" style="display: block; font-weight: bold; margin-bottom: 8px; color: #444;">選擇尺寸：</label>
                     <select id="size-select" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 15px; background-color: #fff;">
-                        <option value="4inch">4 吋迷你版 (NT$450)</option>
-                        <option value="6inch" selected>6 吋經典分享版 (NT$880)</option>
+                        <option value="450">4 吋迷你版 (NT$450)</option>
+                        <option value="880" selected>6 吋經典分享版 (NT$880)</option>
                     </select>
                 </div>
 
                 <!-- 加購配件勾選框 -->
                 <div class="option-group" style="margin-bottom: 20px;">
                     <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #444;">加購配件：</label>
+                    
+                    <!-- 加上 value="30" -->
                     <label style="display: inline-flex; align-items: center; margin-right: 15px; font-size: 14px; color: #666; cursor: pointer;">
-                        <input type="checkbox" style="margin-right: 5px;"> 質感金色蠟燭 (+NT$30)
+                        <input type="checkbox" class="addon-checkbox" value="30" style="margin-right: 5px;"> 質感金色蠟燭 (+NT$30)
                     </label>
+                    
+                    <!-- 加上 value="50" -->
                     <label style="display: inline-flex; align-items: center; font-size: 14px; color: #666; cursor: pointer;">
-                        <input type="checkbox" style="margin-right: 5px;"> 生日快樂插牌 (+NT$50)
+                        <input type="checkbox" class="addon-checkbox" value="50" style="margin-right: 5px;"> 生日快樂插牌 (+NT$50)
                     </label>
                 </div>
 
@@ -128,6 +132,6 @@
             element.classList.add('active');
         }
     </script>
-
+    <script src="javascript.js" defer></script>
 </body>
 </html>
