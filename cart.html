@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微焦日子 TOASTED DAY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">TOASTED DAY</a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html#home">首頁</a>
+            <a href="index.html#products">熱賣商品</a>
+            <a href="index.html#about">ABOUT US</a>
+            <a href="index.html#contact">聯絡我們</a>
+            <a href="cart.html" class="cart-btn" aria-label="購物車">
+                🛒 <span id="cart-badge" class="cart-badge">0</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- 主要內容區 -->
+    <main class="container">
+        <h1 class="page-title">您的購物車</h1>
+
+        <!-- 購物車為空時顯示 -->
+        <div id="empty-cart-message" class="empty-state" style="display: none;">
+            <p>購物車目前沒有商品喔！</p>
+            <a href="index.html#products" class="btn btn-primary">前往選購甜點</a>
+        </div>
+
+        <!-- 購物車主要區塊 -->
+        <div id="cart-content" class="cart-layout">
+            
+            <!-- 商品列表區 -->
+            <section class="cart-items-section">
+                <div class="cart-header">
+                    <span>商品資料</span>
+                    <span>單價</span>
+                    <span>數量</span>
+                    <span>小計</span>
+                    <span>操作</span>
+                </div>
+                <div id="cart-items" class="cart-items-list">
+                    <!-- 動態渲染購物車項目 -->
+                </div>
+            </section>
+
+            <!-- 訂單結帳摘要區 -->
+            <section class="cart-summary-section">
+                <div class="summary-card">
+                    <h2>訂單摘要</h2>
+                    <hr>
+                    <div class="summary-row">
+                        <span>商品總計</span>
+                        <span id="cart-subtotal">NT$ 0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>預估運費</span>
+                        <span id="cart-shipping">NT$ 60</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total-row">
+                        <span>應付總金額</span>
+                        <span id="cart-total">NT$ 0</span>
+                    </div>
+                    <button type="button" class="btn btn-checkout" onclick="checkout()">前往結帳</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="cart.js"></script>
+</body>
+</html>
