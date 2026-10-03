@@ -108,7 +108,7 @@ body {
     height: 400px; /* 【調高一點】確保所有文字都能舒適放下，建議設在 430px ~ 460px 之間 */
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     text-align: left;
-    font-family: "Cinzel", "Noto Serif TC", serif;
+    
     display: flex;
     flex-direction: column; 
     box-sizing: border-box; /* 確保 padding 不會把高度撐破 */
@@ -145,7 +145,7 @@ body {
     font-weight: bold;
     color: #e07a5f;
     font-size: 22px;
-    font-family: "Trajan Pro", sans-serif;
+    font-family: "Cinzel", "Noto Serif TC", serif;
 }
 
 /* 品牌故事區塊樣式 */
