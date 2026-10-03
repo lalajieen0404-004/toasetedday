@@ -1,3 +1,18 @@
+/**
+ * 每次開啟網站（新分頁或重新開啟瀏覽器）時清空購物車
+ * 同一次瀏覽中切換頁面、重新整理都不會清空
+ */
+(function resetCartOnNewVisit() {
+    try {
+        if (!sessionStorage.getItem('cartSessionStarted')) {
+            localStorage.removeItem('cartItems');
+            sessionStorage.setItem('cartSessionStarted', '1');
+        }
+    } catch (e) {
+        console.error('重置購物車失敗：', e);
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     // 取得頁面元件
     const sizeSelect = document.getElementById('size-select');
@@ -98,6 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedSizeOption = sizeSelect.options[sizeSelect.selectedIndex];
             const sizeText = selectedSizeOption.text.split('(')[0].trim(); // 取得尺寸名稱
             const basePrice = Number(sizeSelect.value);
+            const productInfo = document.getElementById('product-info');
+            const productName = productInfo.textContent;
+            const productId = productInfo.getAttribute("productid");
 
             // B. 收集被勾選的加購項目
             const selectedAddons = [];
@@ -117,14 +135,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // D. 組裝商品資料物件
             const newItem = {
-                id: 'tiramisu-' + sizeSelect.value + '-' + Date.now(), // 唯一識別碼
-                name: '提拉米蘇巴斯克',
+                id: productId + '-' + sizeSelect.value + '-' + Date.now(), // 唯一識別碼
+                name: productName,
                 size: sizeText,
                 addons: selectedAddons,
                 unitPrice: unitPrice,
                 quantity: quantity,
                 totalPrice: totalPrice,
-                image: 'img/product_tiramisu_whole.jpg'
+                image: `img/product_${productId}_whole.jpg`
             };
 
             // E. 從 localStorage 讀取現有購物車，若無則建立空陣列
